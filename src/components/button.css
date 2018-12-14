@@ -1,0 +1,30 @@
+.btn-main {
+  font-size: 16px;
+  background: #07f;
+  color: #fff;
+  font-weight: 500;
+  border: none;
+  border-style: none;
+  padding: 11px 20px;
+  cursor: pointer;
+  transition: all, 0.3s;
+}
+
+.btn-default {
+  font-size: 16px;
+  background: #ededed;
+  color: #606060;
+  font-weight: 500;
+  border: none;
+  border-style: none;
+  padding: 11px 20px;
+  cursor: pointer;
+  transition: all, 0.3s;
+}
+.btn-main:hover {
+  background: #2689fe;
+}
+
+.btn-default:hover {
+  color: #07f;
+}
