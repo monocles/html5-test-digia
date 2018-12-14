@@ -3,6 +3,12 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)
 and deployed on [Zeit Now](https://zeit.co/now)
 
+# Setup
+
+- Clone or download this repository
+- Run `npm install` to install its dependencies
+- Run `npm start` to start the React app.
+
 ## Available Scripts
 
 In the project directory, you can run:
