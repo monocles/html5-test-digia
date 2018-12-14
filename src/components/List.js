@@ -23,7 +23,8 @@ export default class List extends Component {
       phone: "",
       currentID: null,
       isEdit: false,
-      isAsc: true
+      isAsc: true,
+      loading: true
     };
     this.sortByName = this.sortByName.bind(this);
   }
@@ -41,7 +42,7 @@ export default class List extends Component {
         });
         return res;
       })
-      .then(res => this.setState({ data: res.results }));
+      .then(res => this.setState({ data: res.results, loading: false }));
   }
 
   handleClick(e, account) {
@@ -197,38 +198,42 @@ export default class List extends Component {
   }
 
   renderList() {
-    let { data, currentID } = this.state;
+    let { data, loading } = this.state;
     return data.map((account, index) => {
       let { phone, name, email, id } = account;
-      return (
-        <tr key={index} className="list-item">
-          <td>
-            <span>{properCase(name)}</span>
-          </td>
-          <td>
-            <span>{email}</span>
-          </td>
-          <td>
-            <span>{phone}</span>
-          </td>
-          <td>
-            <span className="table__edit">
-              <img
-                src={editIcon}
-                alt="edit"
-                onClick={e => this.handleClick(e, account)}
-                className="edit__icon"
-              />
-              <img
-                src={deleteIcon}
-                alt="delete"
-                onClick={() => this.handleRemove(account)}
-                className="edit__icon"
-              />
-            </span>
-          </td>
-        </tr>
-      );
+      if (!loading) {
+        return (
+          <tr key={index} className="list-item">
+            <td>
+              <span>{properCase(name)}</span>
+            </td>
+            <td>
+              <span>{email}</span>
+            </td>
+            <td>
+              <span>{phone}</span>
+            </td>
+            <td>
+              <span className="table__edit">
+                <img
+                  src={editIcon}
+                  alt="edit"
+                  onClick={e => this.handleClick(e, account)}
+                  className="edit__icon"
+                />
+                <img
+                  src={deleteIcon}
+                  alt="delete"
+                  onClick={() => this.handleRemove(account)}
+                  className="edit__icon"
+                />
+              </span>
+            </td>
+          </tr>
+        );
+      } else {
+        return <h1>loading</h1>;
+      }
     });
   }
   render() {

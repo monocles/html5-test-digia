@@ -31,7 +31,7 @@ export default class Form extends Component {
           onChange={e => this.handleChange(e)}
           name="name"
           instantValidate="false"
-          placeholder="name"
+          placeholder="Full name"
           value={name}
           validators={["required", "isString"]}
           errorMessages={["this field is required", "name is not valid"]}
@@ -40,7 +40,7 @@ export default class Form extends Component {
           className="form__section"
           onChange={e => this.handleChange(e)}
           name="email"
-          placeholder="email"
+          placeholder="E-Mail address"
           instantValidate="false"
           value={email}
           validators={["required", "isEmail"]}
@@ -50,7 +50,7 @@ export default class Form extends Component {
           className="form__section"
           onChange={e => this.handleChange(e)}
           name="phone"
-          placeholder="phone"
+          placeholder="Phone Number"
           instantValidate="false"
           value={phone}
           validators={["required", "matchRegexp:^(?=.*[0-9])[- +()0-9]+$"]}
